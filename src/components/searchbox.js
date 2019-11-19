@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { searchAction} from "../actions/searchAction";
-import { displayProducts } from "../api";
 
 class SearchBox extends React.Component {
     

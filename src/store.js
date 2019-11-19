@@ -3,8 +3,9 @@ import rootReducer from './reducers/rootReducer';
 
 function configureStore() {
     return createStore(
-        rootReducer
-    );
+        rootReducer,
+        window.devToolsExtension && window.devToolsExtension());
+        
 }
 
 export default configureStore;
