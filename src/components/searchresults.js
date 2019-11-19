@@ -1,26 +1,26 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { displayProducts } from "../api";
 import { displayingProducts } from "../actions/displayAction";
 import Card from "./card";
 
-class SearchResults extends React.Component{
-    
-    componentDidMount(){
+class SearchResults extends React.Component {
+
+    componentDidMount() {
         this.props.getProductsList();
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="container">
                 <ul className="row">
-                   
-                { this.props.products && this.props.products.map((item,i)=>
-                
-                 <Card item={item} index={i}/>
-                 
+
+                    {this.props.products && this.props.products.map((item, i) =>
+
+                        <Card item={item} index={i} />
+
                     )}
-          </ul>
+                </ul>
             </div>
         )
     }
@@ -41,13 +41,13 @@ function mapStateToProps(state) {
 
 }
 
-function mapActionToProps(dispatch){
-    return{
-        getProductsList:function(){
-            displayProducts().then(result=>dispatch(displayingProducts(result)));
+function mapActionToProps(dispatch) {
+    return {
+        getProductsList: function () {
+            displayProducts().then(result => dispatch(displayingProducts(result)));
         }
     }
-      
+
 }
 
-export default connect(mapStateToProps,mapActionToProps)(SearchResults);
+export default connect(mapStateToProps, mapActionToProps)(SearchResults);
